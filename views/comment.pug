@@ -1,0 +1,86 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    title My Blog
+    link(href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/common.css')
+    script(src='//cdn.bootcss.com/jquery/3.1.1/jquery.min.js')
+    script(src='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    script(type='text/javascript', src='plugin/jquery.page.js')
+    script(src='javascripts/common.js')
+
+    //鼠标点击特效：富强明主。。。
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    script(type='text/javascript' src='javascripts/mouse.js')
+
+
+  body
+    .w_header
+      .container
+        .w_header_top
+          a.w_logo(href='#')
+          span.w_header_nav
+                        ul
+                            li
+                                a(href='/home', onclick='') 首页
+                            li
+                                a(href='/about', onclick='') 关于
+                            li
+                                a(href='/article', onclick='') 成长
+                            li
+                                a(href='/game', onclick='') 小游戏
+                            li
+                                a(href='/play', onclick='') 娱乐
+                            li
+                                a(href='/moodList', onclick='') 说说
+                            li
+                                a.active(href='/comment', onclick='') 留言
+          .w_search
+            .w_searchbox
+              input(type='text', placeholder='搜一搜')
+              button 搜索
+    .w_container
+      .container
+        .row.w_main_row
+          ol.breadcrumb.w_breadcrumb
+            li
+              a(href='#') 首页
+            li.active 评论
+            span.w_navbar_tip 你，生命中最重要的过客，之所以是过客，因为你未曾为我停留。
+          .col-lg-9.col-md-9.w_main_left
+            // PC版
+            // 留言板
+            #SOHUCS(sid='5eab7e4c363e4cb8bed0efa3604e6b42')
+            script(charset='utf-8', type='text/javascript', src='https://changyan.sohu.com/upload/changyan.js')
+            script(type='text/javascript').
+              window.changyan.api.config({
+              appid: 'cysPwLFm1',
+              conf: 'prod_6c6350e206c502f569b865b4bf121e60'
+              });
+
+            // 说说评论框 start
+            .ds-thread(data-thread-key='5eab7e4c363e4cb8bed0efa3604e6b42', data-title='请替换成文章的标题', data-url='请替换成文章的网址')
+            // 说说评论框 end
+
+            // 说说公共JS代码 start (一个网页只需插入一次)
+            script(type='text/javascript').
+              var duoshuoQuery = {short_name:"wfyvv"};
+              (function() {
+              var ds = document.createElement('script');
+              ds.type = 'text/javascript';ds.async = true;
+              ds.src = (document.location.protocol === 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+              ds.charset = 'UTF-8';
+              (document.getElementsByTagName('head')[0]
+              || document.getElementsByTagName('body')[0]).appendChild(ds);
+              })();
+            // 说说公共JS代码 end
+
+          .col-lg-3.col-md-3.w_main_right
+            img(src='images/img/slider/aboutphoto.png')
+    .w_foot
+      .w_foot_copyright Copyright © 2017-2020  版权所有  All Rights Reserved.
+    // toTop
+    #shape
+      .shapeColor
+        .shapeFly

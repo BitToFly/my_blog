@@ -1,0 +1,404 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title My Blog
+        link(href='plugin/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/common.css')
+        //link(href='logo.ico', rel='shortcut icon')
+        script(type='text/javascript' src='plugin/jquery.min.js')
+        script(type='text/javascript' src='plugin/bootstrap/js/bootstrap.min.js')
+        //script(type='text/javascript' src='plugin/jquery.page.js')
+        //script(type='text/javascript' src='javascripts/common.js')
+
+        //鼠标点击特效：富强明主。。。
+        script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+        script(type='text/javascript' src='javascripts/mouse.js')
+
+        //时钟显示
+        link(href='https://fonts.googleapis.com/css?family=Lato:300,400', rel='stylesheet', type='text/css')
+        link(rel='stylesheet prefetch', href='stylesheets/clock.min.css')
+        link(rel='stylesheet prefetch', href='stylesheets/clock.css')
+        script(src='javascripts/clock-jquery-1.7.2.js')
+        script(src='javascripts/clock.js')
+
+        //下拉显示
+        script( src='/javascripts/vue.js')
+        script( src='/javascripts/vue-resource.min.js')
+
+        //搜索框
+        link(rel='stylesheet', href='stylesheets/search.css')
+        script(type='text/javascript', src='javascripts/search_jquery.js')
+        script(type='text/javascript', src='javascripts/search_JsonpAjax.js')
+
+
+    body
+        // 头部分
+        .w_header
+            .container
+                .w_header_top
+                    a.w_logo(href='#')
+                    span.w_header_nav
+                        ul
+                            li
+                                a.active(href='/home', onclick='') 首页
+                            li
+                                a(href='/about', onclick='') 关于
+                            li
+                                a(href='/article', onclick='') 成长
+                            li
+                                a(href='/game', onclick='') 小游戏
+                            li
+                                a(href='/play', onclick='') 娱乐
+                            li
+                                a(href='/moodList', onclick='') 说说
+                            li
+                                a(href='/comment', onclick='') 留言
+                    .w_search
+                        .w_searchbox
+                            input#text(type='text', placeholder='请输入关键字')
+                            input(type='button', value='搜索' @click='search')
+                            #word
+        // 中间部分
+        .w_container
+            .container
+                // 中间部分
+                .row.w_main_row
+                    // 滚动图开始
+                    .col-lg-9.col-md-9.w_main_left
+                        .panel.panel-default
+                            #w_carousel.carousel.slide.w_carousel(data-ride='carousel')
+                                // Indicators
+                                ol.carousel-indicators
+                                    li.active(data-target='#w_carousel', data-slide-to='0')
+                                    li(data-target='#w_carousel', data-slide-to='1')
+                                    li(data-target='#w_carousel', data-slide-to='2')
+                                    li(data-target='#w_carousel', data-slide-to='3')
+                                // Wrapper for slides
+                                .carousel-inner(role='listbox')
+                                    .item.active
+                                        img(src='images/img/slider/slide1.jpg', alt='...')
+                                        .carousel-caption
+                                            h3 程序猿的家园
+                                            p 寒冷的时候，学会用自己的左手温暖右手。----马云
+                                    .item
+                                        img(src='images/img/slider/slide2.jpg', alt='...')
+                                        .carousel-caption ...
+                                    .item
+                                        img(src='images/img/slider/slide3.jpg', alt='...')
+                                        .carousel-caption ...
+                                    .item
+                                        img(src='images/img/slider/slide4.jpg', alt='...')
+                                        .carousel-caption ...
+                                // Controls
+                                a.left.carousel-control(href='#w_carousel', role='button', data-slide='prev')
+                                    span.glyphicon.glyphicon-chevron-left
+                                    span.sr-only Previous
+                                a.right.carousel-control(href='#w_carousel', role='button', data-slide='next')
+                                    span.glyphicon.glyphicon-chevron-right
+                                    span.sr-only Next
+                        // 图片置顶
+                        .panel.panel-default.contenttop
+                            a(href='article_detail.html')
+                                strong 博主置顶
+                                h3.title 程序员的读书历程：
+                                p.overView
+                                    | x 语言入门 —> x 语言应用实践 —> x 语言高阶编程 —> x 语言的科学与艺术 —> 编程之美 —> 编程之道 —> 编程之禅—> 颈椎病康复指南
+                        // 最新发布
+                        .panel.panel-default#showVue
+                            .panel-heading
+                                h3.panel-title 最新发布
+                            .panel-body
+                                // 文章列表开始
+                                .contentList
+
+                                    .panel.panel-default
+                                        .panel-body
+                                            h4
+                                                a.title 资深大牛给Java初学者的学习路线建议
+                                            p
+                                                a.label.label-default Java
+                                                a.label.label-default 程序猿
+                                            p.overView  1、由于我本人是Java后端开发出身，因此所推荐的学习内容是Java Web和Java后端开发的路线，非Java Web和Java后端开发的同学请适当参考其学习思想即可，切勿照搬。
+                                            p
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1024
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:188
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-13
+                                    .panel.panel-default
+                                        .panel-body
+                                            .contentleft
+                                                h4
+                                                    a.title Java开发的基本学习路线图
+                                                p
+                                                    a.label.label-default Java
+                                                    a.label.label-default JAVA攻城狮
+                                                p.overView
+                                                    | 最近有些网友问我如何自学 Java 后端，还有些是想从别的方向想转过来，但都不太了解 Java 后端究竟需要学什么，究竟要从哪里学起，哪些是主流的 Java 后端技术等等，导致想学，但又很迷茫，不知从何下手。
+                                                p
+                                                    span.count
+                                                        i.glyphicon.glyphicon-user
+                                                        a(href='#') admin
+                                                    span.count
+                                                        i.glyphicon.glyphicon-eye-open
+                                                        | 阅读:1003
+                                                    span.count
+                                                        i.glyphicon.glyphicon-comment
+                                                        | 评论:2
+                                                    span.count
+                                                        i.glyphicon.glyphicon-time
+                                                        | 2018-01-16
+                                            .contentImage
+                                                .row
+                                                    a.thumbnail.w_thumbnail(href='#')
+                                                        img(src='images/img/slider/java2.jpg', alt='')
+                                    .panel.panel-default
+                                        .panel-body
+                                            h4
+                                                a.title Java开发的成长路线图
+                                            p
+                                                a.label.label-default Java
+                                                a.label.label-default JAVA攻城狮
+                                            p.overView 《Java编程思想》、《深入理解Java虚拟机》、《Java并发编程实战》
+                                            p
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:666
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:18
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-12-25
+                                    .panel.panel-default
+                                        .panel-body
+                                            .contentleft
+                                                h4
+                                                    a.title Java 工具类--学习篇
+                                                p
+                                                    a.label.label-default java
+                                                    a.label.label-default 工具
+                                                p.overView
+                                                    | 链接一：http://www.open-open.com/lib/view/open1403600391905.html 链接二：http://www.360doc.com/content/13/0520/11/1722212_286734557.html......
+                                                p
+                                                    span.count
+                                                        i.glyphicon.glyphicon-user
+                                                        a(href='#') admin
+                                                    span.count
+                                                        i.glyphicon.glyphicon-eye-open
+                                                        | 阅读:456
+                                                    span.count
+                                                        i.glyphicon.glyphicon-comment
+                                                        | 评论:58
+                                                    span.count
+                                                        i.glyphicon.glyphicon-time
+                                                        | 2018-10-01
+                                            .contentImage
+                                                // <img src="img/slider/abs_img_no.jpg"/>
+                                                .row
+                                                    a.thumbnail.w_thumbnail(href='#')
+                                                        img(src='images/img/slider/java1.png', alt='...')
+                                    .panel.panel-default
+                                        .panel-body
+                                            .contentleft
+                                                h4
+                                                    a.title Java从入门到放弃
+                                                p
+                                                    a.label.label-default Java
+                                                    a.label.label-default 编程学习
+                                                p.overView
+                                                    | 从java最基础的基本类型到网络，遍历一遍难点，不管从 java编程思想，还是从其他书籍学习，java难点集中在，集合，接口，抽象类，四中类，线程等几个方面是比较难的部分。
+                                                p
+                                                    span.count
+                                                        i.glyphicon.glyphicon-user
+                                                        a(href='#') admin
+                                                    span.count
+                                                        i.glyphicon.glyphicon-eye-open
+                                                        | 阅读:852
+                                                    span.count
+                                                        i.glyphicon.glyphicon-comment
+                                                        | 评论:99
+                                                    span.count
+                                                        i.glyphicon.glyphicon-time
+                                                        | 2018-01-20
+                                            .contentImage
+                                                .row
+                                                    a.thumbnail.w_thumbnail(href='#')
+                                                        img(src='images/img/slider/Java.jpeg', alt='...')
+                                    .panel.panel-default
+                                        .panel-body
+                                            .contentleft
+                                                h4
+                                                    a.title Java 工具类--学习篇
+                                                p
+                                                    a.label.label-default Java
+                                                p.overView
+                                                    | 链接一：http://www.open-open.com/lib/view/open1403600391905.html
+                                                    | 链接二：http://www.360doc.com/content/13/0520/11/1722212_286734557.shtml......
+                                                p
+                                                    span.count
+                                                        i.glyphicon.glyphicon-user
+                                                        a(href='#') admin
+                                                    span.count
+                                                        i.glyphicon.glyphicon-eye-open
+                                                        | 阅读:456
+                                                    span.count
+                                                        i.glyphicon.glyphicon-comment
+                                                        | 评论:58
+                                                    span.count
+                                                        i.glyphicon.glyphicon-time
+                                                        | 2018-10-01
+                                            .contentImage
+                                                .row
+                                                    a.thumbnail.w_thumbnail(href='#')
+                                                        img(src='images/img/slider/java3.png', alt='...')
+
+
+
+
+                                    .panel.panel-default
+                                        template(lang='pug')
+
+                                            .panel-body(v-for='infos in arr')
+                                                .contentleft
+                                                    h4
+                                                        a.title {{infos.title}}
+                                                    p
+                                                        a.label.label-default {{infos.label1}}
+                                                        a.label.label-default {{infos.label2}}
+                                                    p.overView
+                                                        |{{infos.content}}
+                                                    p
+                                                        span.count
+                                                            i.glyphicon.glyphicon-user
+                                                            a(href='#') admin
+                                                        span.count
+                                                            i.glyphicon.glyphicon-eye-open
+                                                            | {{infos.reader}}
+                                                        span.count
+                                                            i.glyphicon.glyphicon-comment
+                                                            | {{infos.comment}}
+                                                        span.count
+                                                            i.glyphicon.glyphicon-time
+                                                                 |{{infos.date}}
+                                                .contentImage
+                                                    .row
+                                                        a.thumbnail.w_thumbnail(href='#')
+                                                            img(v-bind:src='infos.image', alt='')
+
+
+                    // 左侧开始
+                    .col-lg-3.col-md-3.w_main_right
+
+                        // 时钟显示
+                        .panel.panel-default
+                            .clock
+                                .h.shake.shake-slow
+                                .m.shake.shake-slow
+                                .s.shake.shake-slow
+
+                        .panel.panel-default.sitetip
+                            a(href='article_detail.html')
+                                strong 站点公告
+                                h3.title 多么痛的领悟
+                                p.overView
+                                    |  这世界最有可能毁灭的方式——大多数专家都同意——是次意外。这就是为什么会有我们，我们是计算机专家，我们创造意外。----Nathaniel Borenstein
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 热门标签
+                            .panel-body
+                                .labelList
+                                    a.label.label-default 编程
+                                    a.label.label-default 程序猿
+                                    a.label.label-default C语言
+                                    a.label.label-default(href='/tag/jQuery') Java
+                                    a.label.label-default(href='/tag/jQuery选择器') Python
+                                    a.label.label-default(href='/tag/linux') linux
+                                    a.label.label-default(href='/tag/Nginx') Web
+                                    a.label.label-default(href='/tag/linux文件类型') JavaScript
+                                    a.label.label-default(href='/tag/chrome请求两次') HTML
+                                    a.label.label-default(href='/tag/Redis') CSS3
+                                    a.label.label-default(href='/tag/spring') Vue
+                                    a.label.label-default(href='/tag/tomcat') jQuery
+                                    a.label.label-default(href='/tag/SyntaxHighlighter') 前端
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 最新发布
+                            .panel-body
+                                ul.list-unstyled.sidebar
+                                    li
+                                        a(href='/post/04928311') 排序算法之冒泡排序 － java实现
+                                    li
+                                        a(href='/post/32097759') 快速搭建基于二进制日志文件的 mysql 复制
+                                    li
+                                        a(href='/post/09196557') web 服务器负载均衡教程，快速搭建高可用服务器集群
+                                    li
+                                        a(href='/post/20654391') 使用 redis 和 spring-session 实现 tomcat、glassfish 等 web 服务器集群 session 共享
+                                    li
+                                        a(href='/post/41501569') 使用 Nginx 实现 tomcat、glassfish 等 web 服务器负载均衡
+                                    li
+                                        a(href='/post/89658700') mysql 复制（replication）基础概念和应用场景简介
+                                    li
+                                        a(href='/post/03088922') redis 单节点在 Linux 生产环境的安装和简单配置
+                                    li
+                                        a(href='/post/05203355') 使用 jQuery 的 val() 方法来获取以及设置表单元素值
+                                    li
+                                        a(href='/post/03120718') 使用 jQuery 的 removeProp() 方法来删除元素的特性（property）
+                                    li
+                                        a(href='/post/37454977') 使用 jQuery 的 prop() 方法来获取以及设置元素的特性（property）
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 友情链接
+                            .panel-body
+                                .newContent
+                                    ul.list-unstyled.sidebar.shiplink
+                                        li
+                                            a(href='https://www.baidu.com/', target='_blank') 百度
+                                        li
+                                            a(href='https://www.oschina.net/', target='_blank') 开源中国
+                                        li
+                                            a(href='http://www.github.com/', target='_blank') GitHub
+                                        li
+                                            a(href='http://www.sina.com.cn/', target='_blank') 新浪网
+                                        li
+                                            a(href='http://www.qq.com/', target='_blank') 腾讯网
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 关注微信公众号
+                            .panel-body
+                                img(src='images/img/qrcode.png', style='height: 230.5px;width: 230.5px;')
+
+
+        // 返回顶部
+        script(type='text/javascript').
+            var $backToTopEle = $('<a href="javascript:void(0)" class="Hui-iconfont toTop" title="返回顶部" alt="返回顶部" style="display:none"><img src="images/img/totop.png"  alt="回到顶部" ></a>').appendTo($("body")).click(function() {
+                $("html, body").animate({ scrollTop: 0 }, 120) ;
+            }) ;
+            var backToTopFun = function(){
+                var st = $(document).scrollTop(),i
+                    winh = $(window).height();
+                (st > 0) ? $backToTopEle.show(): $backToTopEle.hide();
+                /*IE6下的定位*/
+                if(!window.XMLHttpRequest) {
+                    $backToTopEle.css("top", st + winh - 166);
+                }
+            };
+            $(function() {
+                $(window).on("scroll", backToTopFun);
+                backToTopFun();
+            });
+        script(type='text/javascript',src='/javascripts/Home.js')
+
+
+

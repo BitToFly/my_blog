@@ -1,0 +1,134 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title My Blog
+        link(href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/common.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/moodList.css')
+        link(rel='stylesheet', href='plugin/jquery.page.css')
+        link(href='logo.ico', rel='shortcut icon')
+        script(src='//cdn.bootcss.com/jquery/3.1.1/jquery.min.js')
+        script(src='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(type='text/javascript', src='plugin/jquery.page.js')
+        script(src='javascripts/common.js')
+        script(type='text/javascript').
+            $(function() {
+                $("#page").Page({
+                    totalPages: 7, //分页总数
+                    liNums: 5, //分页的数字按钮数(建议取奇数)
+                    activeClass: 'activP', //active 类样式定义
+                    callBack: function(page) {
+                        console.log(page)
+                    }
+                });
+            })
+
+        //鼠标点击特效：富强明主。。。
+        script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+        script(type='text/javascript' src='javascripts/mouse.js')
+
+        //下拉显示
+        script( src='/javascripts/vue.js')
+        script( src='/javascripts/vue-resource.min.js')
+
+
+    body
+        .w_header
+            .container
+                .w_header_top
+                    a.w_logo(href='#')
+                    span.w_header_nav
+                        ul
+                            li
+                                a(href='/home', onclick='') 首页
+                            li
+                                a(href='/about', onclick='') 关于
+                            li
+                                a(href='/article', onclick='') 成长
+                            li
+                                a(href='/game', onclick='') 小游戏
+                            li
+                                a(href='/play', onclick='') 娱乐
+                            li
+                                a.active(href='/moodList', onclick='') 说说
+                            li
+                                a(href='/comment', onclick='') 留言
+                    .w_search
+                        .w_searchbox
+                            input(type='text', placeholder='搜一搜')
+                            button 搜索
+        .w_container
+            .container
+                .row.w_main_row#showVue1
+                    ol.breadcrumb.w_breadcrumb
+                        li
+                            a(href='#') 首页
+                        li.active 说说
+                        span.w_navbar_tip 删删写写，回回忆忆，虽无法行云流水，却也可碎言碎语
+
+                    .bloglist
+                        ul.arrow_box
+                            .sy
+                                img(src='images/img/slider/bb.jpg')
+                                p  我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。
+                            span.dateview 2019-01-07
+                        ul.arrow_box
+                            .sy
+                                p
+                                    | 我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。
+                            span.dateview 2019-01-08
+                        ul.arrow_box
+                            .sy
+                                img(src='images/img/slider/slide3.jpg')
+                                p
+                                    | 我为爱而忘情，我为爱受折磨，不论忘情还是折磨。
+                            span.dateview 2019-01-10
+                        ul.arrow_box
+                            .sy
+                                p
+                                    | 总有些这样的时候，正是为了爱，才悄悄躲开，躲开的是身影，躲不开的却是那份，默默的情怀，月光下踯躅，睡梦里徘徊，感情上的事情，常常说不明白，不是不想爱，怕是不去爱，怕只怕，爱也是一种伤害。
+                            span.dateview 2019-01-13
+                        ul.arrow_box
+                            .sy
+                                img(src='images/img/slider/001.png')
+                                p
+                                    | 我是天空里的一片云，偶尔投影在你的波心--，你不必讶异，更无须欢喜，在转瞬间消灭了踪影。你我相逢在黑夜的海上，你有你的，我有我的方向;你记得也好，最好你忘掉，在这交会时互放的光亮!
+                            span.dateview 2019-1-14
+
+                        template(lang='pug')
+
+                            ul.arrow_box(v-for='infos1 in arr')
+                                .sy
+                                    img(v-bind:src='infos1.image', alt='')
+                                    p
+                                        | {{infos1.content}}
+                                span.dateview {{infos1.date}}
+
+                    #page
+
+        //// 返回顶部
+        script(type='text/javascript').
+            var $backToTopEle = $('<a href="javascript:void(0)" class="Hui-iconfont toTop" title="返回顶部" alt="返回顶部" style="display:none"><img src="images/img/totop.png"  alt="回到顶部" ></a>').appendTo($("body")).click(function () {
+                $("html, body").animate({scrollTop: 0}, 120);
+            });
+            var backToTopFun = function () {
+                var st = $(document).scrollTop(),
+                    winh = $(window).height();
+                (st > 0) ? $backToTopEle.show() : $backToTopEle.hide();
+                /*IE6下的定位*/
+                if (!window.XMLHttpRequest) {
+                    $backToTopEle.css("top", st + winh - 166);
+                }
+            };
+            $(function () {
+                $(window).on("scroll", backToTopFun);
+                backToTopFun();
+            });
+
+        .w_foot
+            .w_foot_copyright Copyright © 2018-2020 版权所有 All Rights Reserved.
+
+
+    script(type='text/javascript',src='/javascripts/moodList.js')
+

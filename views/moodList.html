@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>My Blog</title><link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="/stylesheets/common.css"><link rel="stylesheet" type="text/css" href="/stylesheets/moodList.css"><link rel="stylesheet" href="plugin/jquery.page.css"><link href="logo.ico" rel="shortcut icon"><script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script><script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script type="text/javascript" src="plugin/jquery.page.js"></script><script src="javascripts/common.js"></script><script type="text/javascript">$(function() {
+    $("#page").Page({
+        totalPages: 7, //分页总数
+        liNums: 5, //分页的数字按钮数(建议取奇数)
+        activeClass: 'activP', //active 类样式定义
+        callBack: function(page) {
+            console.log(page)
+        }
+    });
+})
+</script><!--鼠标点击特效：富强明主。。。--><script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script><script type="text/javascript" src="javascripts/mouse.js"></script><!--下拉显示--><script src="/javascripts/vue.js"></script><script src="/javascripts/vue-resource.min.js"></script></head><body><div class="w_header"><div class="container"><div class="w_header_top"><a class="w_logo" href="#"></a><span class="w_header_nav"><ul><li><a href="/home" onclick="">首页</a></li><li><a href="/about" onclick="">关于</a></li><li><a href="/article" onclick="">成长</a></li><li><a href="/game" onclick="">小游戏</a></li><li><a href="/play" onclick="">娱乐</a></li><li><a class="active" href="/moodList" onclick="">说说</a></li><li><a href="/comment" onclick="">留言</a></li></ul></span><div class="w_search"><div class="w_searchbox"><input type="text" placeholder="搜一搜"><button>搜索</button></div></div></div></div></div><div class="w_container"><div class="container"><div class="row w_main_row" id="showVue1"><ol class="breadcrumb w_breadcrumb"><li><a href="#">首页</a></li><li class="active">说说</li><span class="w_navbar_tip">删删写写，回回忆忆，虽无法行云流水，却也可碎言碎语</span></ol><div class="bloglist"><ul class="arrow_box"><div class="sy"><img src="images/img/slider/bb.jpg"><p> 我希望我的爱情是这样的，相濡以沫，举案齐眉，平淡如水。</p></div><span class="dateview">2019-01-07</span></ul><ul class="arrow_box"><div class="sy"><p>我在岁月中找到他，依靠他，将一生交付给他。做他的妻子，他孩子的母亲，为他做饭，洗衣服，缝一颗掉了的纽扣。然后，我们一起在时光中变老。</p></div><span class="dateview">2019-01-08</span></ul><ul class="arrow_box"><div class="sy"><img src="images/img/slider/slide3.jpg"><p>我为爱而忘情，我为爱受折磨，不论忘情还是折磨。</p></div><span class="dateview">2019-01-10</span></ul><ul class="arrow_box"><div class="sy"><p>总有些这样的时候，正是为了爱，才悄悄躲开，躲开的是身影，躲不开的却是那份，默默的情怀，月光下踯躅，睡梦里徘徊，感情上的事情，常常说不明白，不是不想爱，怕是不去爱，怕只怕，爱也是一种伤害。</p></div><span class="dateview">2019-01-13</span></ul><ul class="arrow_box"><div class="sy"><img src="images/img/slider/001.png"><p>我是天空里的一片云，偶尔投影在你的波心--，你不必讶异，更无须欢喜，在转瞬间消灭了踪影。你我相逢在黑夜的海上，你有你的，我有我的方向;你记得也好，最好你忘掉，在这交会时互放的光亮!</p></div><span class="dateview">2019-1-14</span></ul><template lang="pug"><ul class="arrow_box" v-for="infos1 in arr"><div class="sy"><img v-bind:src="infos1.image" alt=""><p>{{infos1.content}}</p></div><span class="dateview">{{infos1.date}}</span></ul></template></div><div id="page"></div></div></div></div><!--// 返回顶部--><script type="text/javascript">var $backToTopEle = $('<a href="javascript:void(0)" class="Hui-iconfont toTop" title="返回顶部" alt="返回顶部" style="display:none"><img src="images/img/totop.png"  alt="回到顶部" ></a>').appendTo($("body")).click(function () {
+    $("html, body").animate({scrollTop: 0}, 120);
+});
+var backToTopFun = function () {
+    var st = $(document).scrollTop(),
+        winh = $(window).height();
+    (st > 0) ? $backToTopEle.show() : $backToTopEle.hide();
+    /*IE6下的定位*/
+    if (!window.XMLHttpRequest) {
+        $backToTopEle.css("top", st + winh - 166);
+    }
+};
+$(function () {
+    $(window).on("scroll", backToTopFun);
+    backToTopFun();
+});
+</script><div class="w_foot"><div class="w_foot_copyright">Copyright © 2018-2020 版权所有 All Rights Reserved.</div></div></body><script type="text/javascript" src="/javascripts/moodList.js"></script></html>

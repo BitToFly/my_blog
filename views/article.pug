@@ -1,0 +1,318 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        title My Blog
+        link(href='//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css', rel='stylesheet')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/common.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/article.css')
+        link(rel='stylesheet', href='plugin/jquery.page.css')
+        link(href='logo.ico', rel='shortcut icon')
+        script(src='//cdn.bootcss.com/jquery/3.1.1/jquery.min.js')
+        script(src='//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js')
+        script(type='text/javascript', src='plugin/jquery.page.js')
+        script(src='javascripts/common.js')
+        script(type='text/javascript').
+            $(function(){
+                $("#page").Page({
+                    totalPages: 7,//分页总数
+                    liNums: 5,//分页的数字按钮数(建议取奇数)
+                    activeClass: 'active', //active 类样式定义
+                    callBack : function(page){
+                        //console.log(page)
+                    }
+                });
+            })
+
+        //鼠标点击特效：富强明主。。。
+        script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+        script(type='text/javascript' src='javascripts/mouse.js')
+
+
+    body
+        .w_header
+            .container
+                .w_header_top
+                    a.w_logo(href='#')
+                    span.w_header_nav
+                        ul
+                            li
+                                a(href='/home', onclick='') 首页
+                            li
+                                a(href='/about', onclick='') 关于
+                            li
+                                a.active(href='/article', onclick='') 成长
+                            li
+                                a(href='/game', onclick='') 小游戏
+                            li
+                                a(href='/play', onclick='') 娱乐
+                            li
+                                a(href='/moodList', onclick='') 说说
+                            li
+                                a(href='/comment', onclick='') 留言
+                    .w_search
+                        .w_searchbox
+                            input(type='text', placeholder='搜一搜')
+                            button 搜索
+        .w_container
+            .container
+                .row.w_main_row
+                    ol.breadcrumb.w_breadcrumb
+                        li
+                            a(href='#') 首页
+                        li.active 文章
+                        span.w_navbar_tip 我们长路漫漫，只因学无止境。
+                    .col-lg-9.col-md-9.w_main_left
+                        .panel.panel-default
+                            .panel-body.contentList
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web2.png', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习路线
+                                            p
+                                                a.label.label-default 前端
+                                                a.label.label-default 码农
+                                            p.w_list_overview.overView 随着互联网的深入发展，前端开发工程师已成为市场上极具竞争力的人才。许多学生，包括以前的UI，java，或完全零基础，想学习的前端。找到正确的发展方向是重中之重，因为绝大多数情况下，你选择的方向决定了你能走多远。
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1003
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:2
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-02
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web3.jpg', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习之工具篇
+                                            p
+                                                a.label.label-default HBuilder
+                                                a.label.label-default Web Storm
+                                            p.w_list_overview.overView
+                                                | 恰当的工具能有效提高学习效率，将重点放在知识本身，在出现问题时能快速定位并 解决问题，以下是个人觉得必备的前端开发工具：
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1003
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:2
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-03
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web4.png', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习之基础篇
+                                            p
+                                                a.label.label-default Html
+                                                a.label.label-default CSS
+                                            p.w_list_overview.overView 在整个学习过程中HTML CSS JavaScript会有很多地方需要互相结合，实际工作中也是这样，一个简单的功能模块都需要三者结合才能实现。
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1003
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:2
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-05
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web5.jpg', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习之提高篇
+                                            p
+                                                a.label.label-default JavaScript
+                                                a.label.label-default Node.js
+                                            p.w_list_overview.overView
+                                                | 有了前面的基础之后，前端基本算是入门了，这时候可能每个人心中都有了一些学习方向，如果还是没有。 可以参考前面必备技能部分提到的那两个项目，从里面选一些进行发展学习。
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1006
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:2
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-06
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web6.jpg', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习之进化篇
+                                            p
+                                                a.label.label-default Vue
+                                                a.label.label-default AJax
+                                            p.overView
+                                                | 前端的技能其实除了JavaScript（包括NodeJS）、HTML、CSS以外，还有很多。其实前端的技能树很大，这里只能列一些我开发中见到的说一说....
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:666
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:18
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2018-01-12
+                                .panel.panel-default.w_article_item
+                                    .panel-body
+                                        .row
+                                            .col-xs-6.col-md-3
+                                                a.thumbnail.w_thumbnail(href='#')
+                                                    img(src='images/img/web7.jpg', alt='...')
+                                            h4.media-heading
+                                                a.title(href='article_detail.html') 前端学习之总结
+                                            p
+                                                a.label.label-default 前端
+                                                a.label.label-default 码农
+                                            p.w_list_overview.overView
+                                                | 前端学习有个特点，很多东西都很零碎，分散，需要你自己去整理、归纳和总结。掌握一门技术先掌握它的大体框架，想一个能实现的点子，做一个能跑就行的demo，再去完善它的细节，等到demo完成了，对这门技术有了一个感性的认识，再去啃书，收获会大很多。
+                                            p.count_r
+                                                span.count
+                                                    i.glyphicon.glyphicon-user
+                                                    a(href='#') admin
+                                                span.count
+                                                    i.glyphicon.glyphicon-eye-open
+                                                    | 阅读:1003
+                                                span.count
+                                                    i.glyphicon.glyphicon-comment
+                                                    | 评论:2
+                                                span.count
+                                                    i.glyphicon.glyphicon-time
+                                                    | 2017-01-16
+                                //
+                                  <div class="page">
+                                  <nav aria-label="Page navigation">
+                                  <ul class="pagination">
+                                  <li>
+                                  <a href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  </a>
+                                  </li>
+                                  <li class="active"><a href="#">1</a></li>
+                                  <li><a href="#">2</a></li>
+                                  <li><a href="#">3</a></li>
+                                  <li><a href="#">4</a></li>
+                                  <li><a href="#">5</a></li>
+                                  <li>
+                                  <a href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                                  </li>
+                                  </ul>
+                                  </nav>
+                                  </div>
+                                #page
+                    .col-lg-3.col-md-3.w_main_right
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 最新发布
+                            .panel-body
+                                ul.list-unstyled.sidebar
+                                    li
+                                        a(href='/post/04928311') 移动端Native开发
+                                    li
+                                        a(href='/post/32097759') Git：本地版本管理的机制
+                                    li
+                                        a(href='/post/09196557') web 服务器负载均衡教程，快速搭建高可用服务器集群
+                                    li
+                                        a(href='/post/20654391') SVN：远程中心的版本管理机制
+                                    li
+                                        a(href='/post/41501569') SEO搜索引擎优化，了解搜索引擎的原理
+                                    li
+                                        a(href='/post/89658700') mysql 复制（replication）基础概念和应用场景简介
+                                    li
+                                        a(href='/post/03088922') CSS3的特性和HTML5的特性
+                                    li
+                                        a(href='/post/05203355') 模块化的开发方式（AMD、CMD、KMD等等）
+                                    li
+                                        a(href='/post/03120718') JavaScript解释器的一些相关知识
+                                    li
+                                        a(href='/post/37454977') 解析HTML、CSS、JavaScript时造成的阻塞
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 友情链接
+                            .panel-body
+                                .newContent
+                                    ul.list-unstyled.sidebar.shiplink
+                                        li
+                                            a(href='https://www.baidu.com/', target='_blank') 百度
+                                        li
+                                            a(href='https://www.oschina.net/', target='_blank') 开源中国
+                                        li
+                                            a(href='http://www.ulewo.com/', target='_blank') 大麦网
+                                        li
+                                            a(href='http://www.sina.com.cn/', target='_blank') 新浪网
+                                        li
+                                            a(href='http://www.qq.com/', target='_blank') 腾讯网
+
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title 关注微信公众号
+                            .panel-body
+                                img(src='images/img/qrcode.png', style='height: 230.5px;width: 230.5px;')
+        // 返回顶部
+        script(type='text/javascript').
+            var $backToTopEle = $('<a href="javascript:void(0)" class="Hui-iconfont toTop" title="返回顶部" alt="返回顶部" style="display:none"><img src="images/img/totop.png"  alt="回到顶部" ></a>').appendTo($("body")).click(function() {
+                $("html, body").animate({ scrollTop: 0 }, 120);
+            });
+            var backToTopFun = function() {
+                var st = $(document).scrollTop(),
+                    winh = $(window).height();
+                (st > 0) ? $backToTopEle.show(): $backToTopEle.hide();
+                /*IE6下的定位*/
+                if(!window.XMLHttpRequest) {
+                    $backToTopEle.css("top", st + winh - 166);
+                }
+            };
+            $(function() {
+                $(window).on("scroll", backToTopFun);
+                backToTopFun();
+            });
+
+
+        .w_foot
+            .w_foot_copyright Copyright © 2017-2020  版权所有  All Rights Reserved.
+        // toTop
+        #shape
+            .shapeColor
+                .shapeFly

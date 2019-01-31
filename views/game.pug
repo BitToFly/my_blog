@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0')
+    title 2048
+    link(rel='stylesheet', href='stylesheets/2048reset.min.css')
+    link(rel='stylesheet', href='stylesheets/2048style.css')
+
+    //鼠标点击特效：富强明主。。。
+    script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+    script(type='text/javascript' src='javascripts/mouse.js')
+
+  body
+    header
+      .container
+        h1
+          span 2
+          span 0
+          span 4
+          span 8
+        p.inspired 一款随时可玩的益智小游戏。
+    .container
+      .directions
+        p
+          strong 如何玩：
+          |  使用鼠标方向键键移动数字方块。相邻的两个方块数字相同，它们可合并成一个！
+      .scores
+        .score-container.best-score
+          | 最佳:
+          .score
+            #bestScore 0
+        .score-container
+          | 分数:
+          .score
+            #score 0
+            #add.add
+      .game
+        #tile-container.tile-container
+        #end.end
+          | 游戏结束
+          .monkey 🙈
+          button#try-again.btn.not-recommended__item.js-restart-btn 再试一次
+      .not-recommended
+        button#restart.btn.not-recommended__item.js-restart-btn 重新启动游戏
+        span.not-recommended__annotation
+    script(src='javascripts/2048.js')

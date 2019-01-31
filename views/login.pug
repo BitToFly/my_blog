@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 登录界面
+        link(rel='stylesheet', type='text/css', href='/stylesheets/login.css')
+
+        //鼠标点击特效：富强明主。。。
+        script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+        script(type='text/javascript' src='javascripts/mouse.js')
+
+
+    body
+        .wrapper
+            form(action='/login', method='post', onsubmit='return btn()')
+                .loginBox
+                    .loginBoxCenter
+                        p
+                            label(for='username') 用户名：
+                        p
+                            input.loginInput(type='text',id='username'  class='username', name='username', autofocus='autofocus', autocomplete='off', placeholder='请输入邮箱/用户名')
+                        div(id="name" class="name")
+                        p
+                            label(for='password') 密码：
+                        p
+                            input.loginInput(type='password',id='password' class='pwd' name='password', placeholder='请输入密码')
+                        div(id="pwd" class="pwd")
+                        p
+                            a.forgetLink(href='#') 忘记密码?
+                        input#remember(type='checkbox', name='remember')
+                        label(for='remember') 记住登录状态
+                    .loginBoxButtons
+                        button.loginBtn 登录
+                        div
+                            span 没有账号?
+                            a(href='/register' onclick='') 立即注册
+        script(src='../javascripts/login.js')

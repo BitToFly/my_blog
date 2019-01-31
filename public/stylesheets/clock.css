@@ -1,0 +1,13 @@
+.clock div {
+    /*position: relative;*/
+    /*float: left;*/
+    background: #d96457;
+    border-radius: 6px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    margin: 0px 13px;
+
+}

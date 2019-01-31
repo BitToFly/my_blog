@@ -1,0 +1,42 @@
+doctype html
+html
+    head
+        meta(charset='utf-8')
+        title 注册页面
+        link(rel='stylesheet', type='text/css', href='/stylesheets/register.css')
+        script(type='text/javascript', src='javascripts/plugin/jquery.min.js')
+
+        //鼠标点击特效：富强明主。。。
+        script(src='https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js')
+        script(type='text/javascript' src='javascripts/mouse.js')
+
+
+    body
+    .wrapper
+        article
+            h1
+                span 注册博客
+            .main
+                form(action='/register', method='post', onsubmit='return btn()')
+                    .mail
+                        input(type='email', id='email', name='email', placeholder='邮箱')
+                        em 输入正确的邮箱地址
+                    div(id="mail" class="mail")
+
+                    .userName
+                        input(type='text',id='username', name='username', placeholder='用户名')
+                        em 由5-8个字符组成
+                    div(id="name" class="name")
+
+                    .password
+                        input(type='password',id='password', name='password', placeholder='密码')
+                        em 使用字母、数字、符号两种及以上的组合，6-12个字符
+                    div(id="pwd" class="pwd")
+
+
+                    .againpwd
+                        input(type='password',id='password1', name='password1', placeholder='再次输入密码')
+                        em 两次密码一致
+                    div(id="pwd1" class="pwd1")
+                    button 注册
+    script(src='../javascripts/register.js')
